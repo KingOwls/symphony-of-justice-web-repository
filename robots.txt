@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /public/assets/art/characters/reference/
+Disallow: /public/assets/art/enemies/reference/
+Disallow: /public/assets/art/locations/reference/

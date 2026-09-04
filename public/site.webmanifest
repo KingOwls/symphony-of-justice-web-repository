@@ -1,0 +1,9 @@
+{
+  "name": "Symphony of Justice Project Archive",
+  "short_name": "SOJ Archive",
+  "start_url": "./#home",
+  "display": "standalone",
+  "background_color": "#050709",
+  "theme_color": "#07090c",
+  "icons": [{"src":"./favicon.png","sizes":"256x256","type":"image/png"}]
+}

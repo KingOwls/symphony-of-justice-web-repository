@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07090c" />
+  <meta name="description" content="Symphony of Justice — interactive project archive, game design, worldbuilding and Vertical Slice dossier." />
+  <title>Symphony of Justice · Project Archive</title>
+  <link rel="icon" type="image/png" href="./public/favicon.png" />
+  <link rel="manifest" href="./public/site.webmanifest" />
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__noise"></div>
+    <div class="ambient__vignette"></div>
+    <div class="ambient__spotlight" id="spotlight"></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#home" aria-label="Symphony of Justice home">
+      <span class="brand__sigil">S//J</span>
+      <span class="brand__text"><b>SYMPHONY OF JUSTICE</b><small>PROJECT ARCHIVE</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="#archive">Dossiers</a>
+      <a href="#systems">Systems Lab</a>
+      <a href="#world">World</a>
+      <a href="#slice">Vertical Slice</a>
+      <a href="#gallery">Art Archive</a>
+    </nav>
+    <button class="icon-button" id="searchToggle" aria-label="Open archive search" title="Search archive">⌕</button>
+  </header>
+
+  <div class="search-panel" id="searchPanel" hidden>
+    <div class="search-panel__inner">
+      <div class="eyebrow">ARCHIVE QUERY</div>
+      <input id="globalSearch" type="search" placeholder="Search systems, lore, places, names…" autocomplete="off" />
+      <div id="searchResults" class="search-results"></div>
+      <button class="text-button" id="searchClose">Close search</button>
+    </div>
+  </div>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>SYMPHONY OF JUSTICE</strong>
+      <span>Internal codename: Symphonia Iustitiae</span>
+    </div>
+    <div class="footer-note">Official project materials and clearly marked visual references. Reference concepts are not production-ready licensed assets.</div>
+  </footer>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
