@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest';import {resolveReaction} from './reactions';
+describe('ordered reactions',()=>{it('resolves documented Water then Fire',()=>expect(resolveReaction('Water','Fire')?.name).toBe('Scald'));it('keeps direction significant',()=>expect(resolveReaction('Ice','Fire')?.name).toBe('Melt'));it('returns null for undefined pair',()=>expect(resolveReaction('Light','Plant')).toBeNull())});

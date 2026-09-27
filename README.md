@@ -1,74 +1,68 @@
-# Symphony of Justice · Interactive Project Archive
+# Symphony of Justice V2
 
-A public-facing, data-driven web archive for **Symphony of Justice** (internal codename: **Symphonia Iustitiae**). The site turns the project documentation into a navigable experience instead of a static pitch deck.
+Official interactive website prototype for **Symphony of Justice**, rebuilt from the original static archive as a React + TypeScript + Vite experience.
 
-## What is inside
+## What changed in V2
 
-- 16 Game Design dossiers
-- 9 World & Lore dossiers
-- 6 Vertical Slice dossiers
-- Search across the complete extracted documentation
-- Interactive elemental reaction matrix
-- Gacha pity / guarantee state model
-- Combat synergy walkthrough
-- Historical timeline
-- Nation and faction-oriented world presentation
-- Art archive separating named project art from concept/reference material
-- GitHub Pages deployment workflow
+The V1 content and art archive are preserved, but the runtime has been redesigned around reusable React pages and interactive game-system prototypes. The visual language follows the approved dark-fantasy website mockups while using the project's actual optimized art assets.
 
-## Run locally
+### Included routes
 
-No build step is required.
+- `/#/` — Home
+- `/#/world` — world, nations, map, history
+- `/#/characters` — searchable/filterable roster
+- `/#/characters/:id` — interactive character build prototype
+- `/#/gameplay` — gameplay guide + Combat Lab
+- `/#/systems/reactions` — ordered reaction simulator/codex
+- `/#/exploration` — interactive exploration prototype
+- `/#/bestiary` — enemies and creatures
+- `/#/bosses` — boss phases / arena concept
+- `/#/progression` — progression and build comparison
+- `/#/story` — public narrative presentation
+- `/#/archive` — the full 31-dossier V1 archive in a redesigned reader
+- `/#/acquisition` — pity / guarantee / carry-over gacha simulator
+- `/#/vertical-slice` — 20–30 minute prototype mission overview
+- `/#/gallery` — official art and clearly labelled concept references
 
-```bash
-python -m http.server 8000
-```
+## Local development
 
-Open `http://localhost:8000`.
-
-## Content regeneration
-
-The generated site data comes from the DOCX files stored under `sources/`.
+Requirements: Node.js 20+ (Node 22 recommended).
 
 ```bash
-python tools/build_content.py
+npm install
+npm run dev
 ```
 
-The script requires `python-docx`.
-
-The optimized web art and its manifest are generated with:
+Production checks:
 
 ```bash
-python tools/build_art.py
+npm run test:run
+npm run build
+npm run preview
 ```
-
-That script requires Pillow and expects the original art source directory used during production. The already-generated web assets are committed, so normal site use does not require rebuilding the art.
-
-## Repository structure
-
-```text
-index.html                  Main shell
-src/app.js                  Router, search, pages and interactive models
-src/styles.css               Visual system and responsive layout
-src/data/project-data.js     Generated documentation data
-src/data/art-data.js         Generated visual-asset manifest
-public/assets/art/           Optimized WebP assets
-sources/                     Working DOCX source documents
-tools/                       Content/art generation scripts
-.github/workflows/pages.yml  GitHub Pages deployment
-```
-
-## Visual-reference policy
-
-Images marked **Concept · reference only** are not treated as production-ready owned assets. They exist to communicate visual intention and should be replaced by original or properly licensed production material before commercial publication.
-
-The GitHub Pages workflow deploys the web experience but **does not deploy the DOCX source files or build tools**.
 
 ## GitHub Pages
 
-1. Push this repository to GitHub.
-2. Open **Settings → Pages**.
-3. Set **Source** to **GitHub Actions**.
-4. Push to `main` or manually run the Pages workflow.
+The repository contains `.github/workflows/pages.yml`. Keep this repository as the existing Pages repository so its public root URL remains unchanged.
 
-The workflow copies only the runtime web files into the deployment artifact.
+In GitHub:
+
+1. Open **Settings → Pages**.
+2. Set **Source** to **GitHub Actions**.
+3. Push the V2 to `main`.
+4. The workflow installs dependencies, runs tests, builds `dist/`, and deploys it.
+
+The app uses `HashRouter`, so deep navigation such as `/#/characters/niels-darkmoon` works on GitHub Pages without server rewrites.
+
+## Content / art policy
+
+- Existing official assets remain under `public/assets/art/**/official/`.
+- External visual references remain under `reference/` and are labelled **Concept Reference · Not Final Game Art** in Gallery.
+- Demo-only numerical balance values are prototypes for showing the UI and are not final game balance.
+- The existing 31 extracted dossiers remain the archive source of truth.
+
+See `ART_POLICY.md`, `CONTENT_MAP.md`, and `docs/superpowers/specs/2026-09-27-symphony-of-justice-v2-design.md`.
+
+## V1 preservation
+
+The previous HTML/CSS/JS runtime is preserved in `legacy/v1/` for comparison and rollback. It is not part of the V2 runtime.

@@ -1,0 +1,2 @@
+import {Link} from 'react-router-dom';
+export default function NotFoundPage(){return <div className="section" style={{minHeight:'70vh',display:'grid',placeItems:'center',textAlign:'center'}}><div><div className="eyebrow">Restricted Archive</div><h1 className="serif" style={{fontSize:'4rem'}}>Record Not Found</h1><p className="muted">The requested record does not exist, has moved, or remains inaccessible.</p><Link className="btn" to="/">Return Home</Link></div></div>}

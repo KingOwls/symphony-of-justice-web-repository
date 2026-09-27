@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest';import {defaultGachaState,fiveStarChance,pullOnce} from './gacha';
+describe('gacha prototype',()=>{it('hard pity resolves by pull 90',()=>expect(fiveStarChance(89)).toBe(1));it('increments pity on non five-star',()=>expect(pullOnce(defaultGachaState,.99).state.pity).toBe(1));it('resets pity on five-star',()=>expect(pullOnce({...defaultGachaState,pity:89},.5).state.pity).toBe(0))});

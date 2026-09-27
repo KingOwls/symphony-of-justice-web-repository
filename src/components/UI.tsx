@@ -1,0 +1,4 @@
+import type {ReactNode,CSSProperties} from 'react';
+export function Section({title,subtitle,children,className=''}:{title:string;subtitle?:string;children:ReactNode;className?:string}){return <section className={'section '+className}><div className="ornament">✦</div><div className="section-head"><h2>{title}</h2>{subtitle&&<p>{subtitle}</p>}</div>{children}</section>}
+export function Hero({eyebrow,title,copy,image,children,bg}:{eyebrow:string;title:string;copy:string;image?:string;children?:ReactNode;bg?:string}){return <section className="hero" style={{'--hero':bg?`url(${bg})`:'none'} as CSSProperties}><div className="hero-copy"><div className="eyebrow">{eyebrow}</div><h1>{title}</h1><p>{copy}</p>{children}</div>{image&&<div className="hero-art"><img src={image} alt=""/></div>}</section>}
+export const Pill=({children}:{children:ReactNode})=><span className="pill">{children}</span>;
