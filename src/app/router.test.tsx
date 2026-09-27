@@ -26,7 +26,8 @@ test('renders home and world routes', async () => {
 
   expect(
     await screen.findByRole('heading', {
-      name: /The World/i,
+      level: 1,
+      name: 'The World of Symphony of Justice',
     })
   ).toBeInTheDocument();
 });
